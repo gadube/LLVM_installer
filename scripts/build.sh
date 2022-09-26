@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 CMAKE="cmake"
+NUM_CORES=2 # because I can't handle that many
 
 function compile_install {
   echo "LLVM_Installer:   Compiling LLVM" ;
@@ -11,7 +12,7 @@ function compile_install {
   eval ${CMAKE} ${CMAKE_OPTIONS} ../
 
   # Compile
-  make -j 28 clang ;
+  make -j ${NUM_CORES} clang ;
   echo "" ;
 
   # Install
