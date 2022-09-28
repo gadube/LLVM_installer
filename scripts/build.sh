@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 CMAKE="cmake"
-NUM_CORES?=2 # because I can't handle that many
+NUM_CORES=$1
+shift
 
 function compile_install {
   echo "LLVM_Installer:   Compiling LLVM" ;
