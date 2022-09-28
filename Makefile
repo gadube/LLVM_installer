@@ -8,7 +8,7 @@ EXTRAS="extra" #"noextra"
 EXTRA_CMAKE_OPTIONS="" 
 LLVM_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-
 CLANG_ADDR=clang-$(LLVM_VERSION).src.tar.xz
-CORES?=2
+CORES ?= 2
 
 all: archive src
 	./scripts/build.sh $(LLVM_VERSION) release "$(BACKENDS)" $(TESTS) "$(EXTRA_CMAKE_OPTIONS)"
