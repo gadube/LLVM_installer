@@ -8,7 +8,7 @@ EXTRAS="extra" #"noextra"
 EXTRA_CMAKE_OPTIONS="" 
 LLVM_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-
 CLANG_ADDR=clang-$(LLVM_VERSION).src.tar.xz
-
+CORES?=2
 
 all: archive src
 	./scripts/build.sh $(LLVM_VERSION) release "$(BACKENDS)" $(TESTS) "$(EXTRA_CMAKE_OPTIONS)"
@@ -44,7 +44,7 @@ unpack: $(PACKAGES)
 	./scripts/unpack.sh $(LLVM_VERSION) $(EXTRAS)
 
 debug:
-	./scripts/build.sh $(LLVM_VERSION) $@ "$(BACKENDS)" $(TESTS) "$(EXTRA_CMAKE_OPTIONS)"
+	./scripts/build.sh $(CORES) $(LLVM_VERSION) $@ "$(BACKENDS)" $(TESTS) "$(EXTRA_CMAKE_OPTIONS)"
 
 clean_build:
 	rm -rf `find ./ -name build`
